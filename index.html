@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6f91">
+  <title>ถึงป๋อมแป๋ม 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="hearts"></div>
+
+  <main>
+    <!-- 1. Welcome -->
+    <section class="page active" id="welcome">
+      <div class="photo-wrap">
+        <div class="glow"></div>
+        <img src="papamp.jpg" alt="ป๋อมแป๋ม">
+      </div>
+      <p class="eyebrow">ถึงคนพิเศษของพี่ 💌</p>
+      <h1>ป๋อมแป๋ม</h1>
+      <p class="lead">มีอะไรอยากให้หนูดูหน่อย</p>
+      <button class="primary" data-next="reasons">เริ่มกันเลย ❤️</button>
+    </section>
+
+    <!-- 2. Reasons -->
+    <section class="page" id="reasons">
+      <div class="section-head">
+        <span>02</span>
+        <h2>เหตุผลที่พี่ชอบแป๋ม</h2>
+        <p>มีหลายอย่างมากกว่านี้ แต่ขอเล่าให้ฟังทีละข้อนะ</p>
+      </div>
+
+      <div class="reason-card" id="reasonCard">
+        <div class="reason-number" id="reasonNumber">01</div>
+        <div class="reason-icon">♡</div>
+        <p id="reasonText">หนูทำให้พี่มีความสุขในทุกๆวัน</p>
+      </div>
+
+      <div class="dots" id="dots"></div>
+      <button class="secondary" id="nextReason">เหตุผลต่อไป →</button>
+      <button class="text-btn" data-next="music">ไปต่อกันเลย</button>
+    </section>
+
+    <!-- 3. Music -->
+    <section class="page" id="music">
+      <div class="section-head">
+        <span>03</span>
+        <h2>อยากให้ฟังครับ</h2>
+        <p>ดาวหางฮัลเลย์ — fellow fellow</p>
+      </div>
+
+      <div class="music-card">
+        <div class="vinyl">
+          <div class="vinyl-hole"></div>
+        </div>
+        <div class="music-info">
+          <div class="music-title">ดาวหางฮัลเลย์</div>
+          <div class="music-artist">fellow fellow</div>
+          <div class="visualizer" id="visualizer">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+        <button class="play" id="playBtn" aria-label="เล่นเพลง">▶</button>
+      </div>
+
+
+      <audio id="audio" preload="metadata" src="halleys-comet.mp3"></audio>
+
+      <button class="primary" data-next="letter">มีจดหมายอีกฉบับ 💌</button>
+    </section>
+
+    <!-- 4. Letter -->
+    <section class="page" id="letter">
+      <div class="section-head">
+        <span>04</span>
+        <h2>จดหมายจากพี่ 💌</h2>
+        <p>กดที่ซองจดหมายเพื่อเปิด</p>
+      </div>
+
+      <div class="envelope" id="envelope">
+        <div class="envelope-back"></div>
+        <div class="letter-paper">
+          <p>ป๋อมแป๋ม...</p>
+          <p>
+            พี่อาจจะไม่ได้พูดเก่งที่สุด และอาจจะไม่ได้เป็นคนที่โรแมนติกที่สุด
+            แต่พี่รู้สึกดีทุกครั้งที่ได้คุย ได้เจอ และได้ใช้เวลาด้วยกัน
+          </p>
+          <p>
+            ขอบคุณที่คอยดูแล คอยให้คำแนะนำ และพาพี่ไปเจออะไรใหม่ๆ
+            หลายๆ วันที่ธรรมดาเลยกลายเป็นวันที่มีความหมาย
+          </p>
+          <p>มีเรื่องหนึ่งที่พี่อยากถามแป๋มจริงๆ...</p>
+          <div class="signature">จากพี่ฟีฟ่า ❤️</div>
+        </div>
+        <div class="envelope-front"></div>
+        <div class="flap"></div>
+      </div>
+
+      <button class="primary hidden" id="letterNext">ไปหาคำตอบกัน ❤️</button>
+    </section>
+
+    <!-- 5. Proposal -->
+    <section class="page" id="proposal">
+      <div class="proposal-heart">♡</div>
+      <p class="eyebrow">คำถามสุดท้าย</p>
+      <h2 class="big-question">เป็นแฟนกับพี่ไหม?</h2>
+      <p class="small">ไม่ต้องรีบตอบนะ พี่อยากได้คำตอบที่มาจากความรู้สึกของแป๋มจริงๆ</p>
+      <div class="choices">
+        <button class="yes" id="yesBtn">💗 ตกลง</button>
+        <button class="think" id="thinkBtn">🥺 ขอคิดดูก่อน</button>
+      </div>
+    </section>
+
+    <!-- 6. Yes -->
+    <section class="page result" id="yes">
+      <div class="firework">🎉</div>
+      <div class="big-heart">♥</div>
+      <h2>เย่!!!!! ❤️</h2>
+      <h3>ตั้งแต่วันนี้เราเป็นแฟนแล้ว</h3>
+      <p>ขอบคุณที่เลือกเดินไปด้วยกันนะป๋อมแป๋ม</p>
+      <p class="forever">ขอให้หลังจากวันนี้มีเรื่องดีๆ ให้เราจำด้วยกันอีกเยอะๆ เลย</p>
+      <button class="secondary" id="replay">ดูตั้งแต่ต้นอีกครั้ง ↺</button>
+    </section>
+
+    <!-- 7. Think -->
+    <section class="page result" id="think">
+      <div class="soft-heart">♡</div>
+      <h2>ไม่เป็นไรครับ 😊</h2>
+      <p class="think-message">
+        รอวันที่หนูพร้อม<br>
+        เราต้องรู้จักกันไปนานๆ ก่อนเนอะ
+      </p>
+      <p> ขอแค่อยู่แบบนี้ไปด้วยกันพี่ก็พอใจแล้วครับ ❤️</p>
+      <button class="secondary" id="backProposal">กลับไปดูคำถามอีกครั้ง</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
