@@ -1,29 +1,956 @@
-/* =====================================
-   ENVELOPE OPEN
-   ===================================== */
+/* =========================================================
+   LOVE PROPOSAL - STYLE.CSS
+   ========================================================= */
 
-/* ซองยังอยู่ตำแหน่งเดิม */
-.envelope {
-  width: min(86vw, 520px);
-  height: 330px;
-  position: relative;
-  margin: 25px auto 35px;
-  perspective: 1000px;
-  cursor: pointer;
-  z-index: 1;
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ff6f91;
+  --pink2: #ff9db5;
+  --cream: #fff8f5;
+  --ink: #49363b;
+  --muted: #876e75;
+  --white: #ffffff;
+
+  --shadow:
+    0 20px 60px rgba(91, 42, 57, 0.15);
 }
 
 
-/* =====================================
-   BACK OF ENVELOPE
-   ===================================== */
+html,
+body {
+  margin: 0;
+  min-height: 100%;
 
-.envelope-back {
+  font-family:
+    "Kanit",
+    sans-serif;
+
+  color: var(--ink);
+
+  background:
+    radial-gradient(
+      circle at 20% 10%,
+      #ffe4ec 0,
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      #ffe8d9 0,
+      transparent 30%
+    ),
+    var(--cream);
+}
+
+
+body {
+  overflow-x: hidden;
+}
+
+
+button {
+  font-family:
+    "Kanit",
+    sans-serif;
+
+  border: 0;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+  position: relative;
+
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.page {
+  min-height: 100vh;
+
+  padding:
+    54px 22px 70px;
+
+  display: none;
+
+  place-items: center;
+
+  text-align: center;
+
+  position: relative;
+}
+
+
+.page.active {
+  display: grid;
+
+  animation:
+    pageIn 0.7s ease both;
+}
+
+
+@keyframes pageIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      none;
+  }
+
+}
+
+
+/* =========================================================
+   WELCOME PAGE
+   ========================================================= */
+
+#welcome {
+
+  grid-template-columns:
+    minmax(280px, 560px);
+
+  align-content: center;
+
+}
+
+
+/* รูปภาพ */
+
+.photo-wrap {
+
+  position: relative;
+
+  width:
+    min(78vw, 390px);
+
+  aspect-ratio:
+    3 / 4;
+
+  margin:
+    auto;
+}
+
+
+.photo-wrap img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius:
+    34px;
+
+  position: relative;
+
+  z-index: 2;
+
+  box-shadow:
+    var(--shadow);
+
+  transform:
+    rotate(1.2deg);
+
+}
+
+
+/* แสงด้านหลังรูป */
+
+.glow {
+
   position: absolute;
 
-  inset: 0;
+  inset:
+    18px -12px -12px 12px;
 
-  border-radius: 18px;
+  border-radius:
+    34px;
+
+  background:
+    #ffd0dc;
+
+  filter:
+    blur(10px);
+
+  transform:
+    rotate(-3deg);
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.eyebrow {
+
+  font-size:
+    0.9rem;
+
+  color:
+    var(--pink);
+
+  letter-spacing:
+    0.08em;
+
+  margin:
+    24px 0 5px;
+
+}
+
+
+h1,
+h2,
+h3 {
+
+  font-family:
+    "Itim",
+    cursive;
+
+  font-weight:
+    400;
+
+}
+
+
+h1 {
+
+  font-size:
+    clamp(
+      4rem,
+      16vw,
+      7rem
+    );
+
+  line-height:
+    0.9;
+
+  margin:
+    0;
+}
+
+
+.lead {
+
+  font-size:
+    1.25rem;
+
+  margin:
+    16px 0 26px;
+
+  color:
+    var(--muted);
+}
+
+
+.scroll-hint {
+
+  font-size:
+    0.75rem;
+
+  color:
+    #b49da3;
+
+  margin-top:
+    28px;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary,
+.secondary,
+.text-btn {
+
+  border-radius:
+    999px;
+
+  padding:
+    13px 26px;
+
+  transition:
+    0.25s ease;
+
+}
+
+
+.primary {
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff5f86,
+      #ff89a5
+    );
+
+  color:
+    white;
+
+  box-shadow:
+    0 10px 25px
+    rgba(
+      255,
+      95,
+      134,
+      0.25
+    );
+
+}
+
+
+.primary:hover {
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 15px 30px
+    rgba(
+      255,
+      95,
+      134,
+      0.3
+    );
+
+}
+
+
+.secondary {
+
+  background:
+    #ffffff;
+
+  color:
+    var(--pink);
+
+  border:
+    1px solid #ffd0dc;
+
+}
+
+
+.secondary:hover {
+
+  transform:
+    translateY(-2px);
+
+}
+
+
+.text-btn {
+
+  background:
+    transparent;
+
+  color:
+    var(--muted);
+
+  display:
+    block;
+
+  margin:
+    12px auto;
+
+}
+
+
+/* =========================================================
+   REASONS PAGE
+   ========================================================= */
+
+#reasons {
+
+  grid-template-columns:
+    minmax(280px, 700px);
+
+  align-content:
+    center;
+
+}
+
+
+.section-head {
+
+  max-width:
+    680px;
+
+  margin:
+    auto;
+
+}
+
+
+.section-head > span {
+
+  font-size:
+    0.75rem;
+
+  color:
+    var(--pink);
+
+  letter-spacing:
+    0.15em;
+
+}
+
+
+.section-head h2 {
+
+  font-size:
+    clamp(
+      2.6rem,
+      10vw,
+      4.5rem
+    );
+
+  margin:
+    5px 0;
+
+}
+
+
+.section-head p {
+
+  color:
+    var(--muted);
+
+  margin-top:
+    0;
+
+}
+
+
+/* การ์ดเหตุผล */
+
+.reason-card {
+
+  margin:
+    32px auto 20px;
+
+  width:
+    min(90vw, 600px);
+
+  min-height:
+    260px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.76
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  border:
+    1px solid #ffffff;
+
+  border-radius:
+    34px;
+
+  padding:
+    38px 30px;
+
+  box-shadow:
+    var(--shadow);
+
+  display:
+    grid;
+
+  align-content:
+    center;
+
+}
+
+
+.reason-number {
+
+  font-size:
+    1rem;
+
+  color:
+    var(--pink);
+
+  letter-spacing:
+    0.2em;
+
+}
+
+
+.reason-icon {
+
+  font-size:
+    3rem;
+
+  color:
+    #ff9ab0;
+
+  font-family:
+    serif;
+
+}
+
+
+.reason-card p {
+
+  font-family:
+    "Itim",
+    cursive;
+
+  font-size:
+    clamp(
+      1.7rem,
+      5vw,
+      2.7rem
+    );
+
+  line-height:
+    1.2;
+
+  margin:
+    12px auto 0;
+
+  transition:
+    0.25s;
+
+}
+
+
+.dots {
+
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  gap:
+    8px;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.dot {
+
+  width:
+    8px;
+
+  height:
+    8px;
+
+  border-radius:
+    50%;
+
+  background:
+    #ead9de;
+
+}
+
+
+.dot.on {
+
+  background:
+    var(--pink);
+
+  transform:
+    scale(1.3);
+
+}
+
+
+/* =========================================================
+   MUSIC
+   ========================================================= */
+
+#music {
+
+  grid-template-columns:
+    minmax(280px, 650px);
+
+  align-content:
+    center;
+
+}
+
+
+.music-card {
+
+  margin:
+    35px auto 15px;
+
+  width:
+    min(92vw, 620px);
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    20px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.8
+    );
+
+  border-radius:
+    30px;
+
+  padding:
+    22px;
+
+  box-shadow:
+    var(--shadow);
+
+  text-align:
+    left;
+
+}
+
+
+.vinyl {
+
+  width:
+    100px;
+
+  height:
+    100px;
+
+  border-radius:
+    50%;
+
+  flex:
+    0 0 100px;
+
+  background:
+    repeating-radial-gradient(
+      circle,
+      #282328 0 3px,
+      #151215 4px 7px
+    );
+
+  position:
+    relative;
+
+  box-shadow:
+    0 8px 20px
+    rgba(
+      0,
+      0,
+      0,
+      0.12
+    );
+
+  animation:
+    spin 5s linear infinite;
+
+  animation-play-state:
+    paused;
+
+}
+
+
+.vinyl.playing {
+
+  animation-play-state:
+    running;
+
+}
+
+
+.vinyl-hole {
+
+  position:
+    absolute;
+
+  left:
+    42px;
+
+  top:
+    42px;
+
+  width:
+    16px;
+
+  height:
+    16px;
+
+  background:
+    #ff7f9d;
+
+  border-radius:
+    50%;
+
+  border:
+    4px solid #272127;
+
+}
+
+
+@keyframes spin {
+
+  to {
+
+    transform:
+      rotate(360deg);
+
+  }
+
+}
+
+
+.music-info {
+
+  flex:
+    1;
+
+  min-width:
+    0;
+
+}
+
+
+.music-title {
+
+  font-size:
+    1.2rem;
+
+}
+
+
+.music-artist {
+
+  font-size:
+    0.85rem;
+
+  color:
+    var(--muted);
+
+}
+
+
+.visualizer {
+
+  height:
+    40px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    4px;
+
+  margin-top:
+    10px;
+
+}
+
+
+.visualizer i {
+
+  display:
+    block;
+
+  width:
+    4px;
+
+  height:
+    8px;
+
+  border-radius:
+    10px;
+
+  background:
+    #ff86a0;
+
+}
+
+
+.visualizer.playing i {
+
+  animation:
+    bars 0.7s
+    ease-in-out
+    infinite
+    alternate;
+
+}
+
+
+.visualizer i:nth-child(2n) {
+
+  animation-delay:
+    0.1s;
+
+}
+
+
+.visualizer i:nth-child(3n) {
+
+  animation-delay:
+    0.25s;
+
+}
+
+
+@keyframes bars {
+
+  to {
+
+    height:
+      34px;
+
+  }
+
+}
+
+
+.play {
+
+  width:
+    54px;
+
+  height:
+    54px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--pink);
+
+  color:
+    #ffffff;
+
+  font-size:
+    1.1rem;
+
+}
+
+
+.music-note {
+
+  font-size:
+    0.78rem;
+
+  color:
+    #9a858a;
+
+  max-width:
+    560px;
+
+  margin:
+    0 auto 25px;
+
+}
+
+
+/* =========================================================
+   LETTER PAGE
+   ========================================================= */
+
+#letter {
+
+  grid-template-columns:
+    minmax(280px, 650px);
+
+  align-content:
+    center;
+
+}
+
+
+/* =========================================================
+   ENVELOPE
+   ========================================================= */
+
+.envelope {
+
+  width:
+    min(86vw, 520px);
+
+  height:
+    330px;
+
+  position:
+    relative;
+
+  margin:
+    25px auto 35px;
+
+  perspective:
+    1000px;
+
+  cursor:
+    pointer;
+
+  /*
+    สำคัญ:
+    ไม่ใช้ fixed
+    เพื่อไม่ให้พื้นหลังเพี้ยน
+  */
+
+  z-index:
+    1;
+
+}
+
+
+/* =========================================================
+   ENVELOPE BACK
+   ========================================================= */
+
+.envelope-back {
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  border-radius:
+    18px;
 
   background:
     linear-gradient(
@@ -32,41 +959,59 @@
       #ff8da9
     );
 
-  box-shadow: var(--shadow);
+  box-shadow:
+    var(--shadow);
 
-  z-index: 1;
+  z-index:
+    1;
+
 }
 
 
-/* =====================================
+/* =========================================================
    LETTER PAPER
-   ===================================== */
+   ========================================================= */
 
 .letter-paper {
 
-  position: absolute;
+  position:
+    absolute;
 
-  z-index: 3;
+  z-index:
+    3;
 
-  background: #fffdf8;
+  background:
+    #fffdf8;
 
-  width: 88%;
+  width:
+    88%;
 
-  height: 88%;
+  height:
+    88%;
 
-  left: 6%;
+  left:
+    6%;
 
-  top: 7%;
+  top:
+    7%;
 
-  padding: 25px 28px;
+  padding:
+    25px 28px;
 
-  text-align: left;
+  text-align:
+    left;
 
-  border-radius: 10px;
+  border-radius:
+    10px;
 
   box-shadow:
     0 8px 25px
-    rgba(0, 0, 0, 0.1);
+    rgba(
+      0,
+      0,
+      0,
+      0.10
+    );
 
   transition:
     transform 0.8s ease,
@@ -76,69 +1021,131 @@
     top 0.8s ease,
     border-radius 0.8s ease;
 
-  overflow-y: auto;
+  overflow-y:
+    auto;
 
-  font-size: 0.92rem;
+  font-size:
+    0.92rem;
 
-  line-height: 1.7;
+  line-height:
+    1.7;
+
 }
 
 
-/* =====================================
-   เมื่อเปิดซอง
-   ===================================== */
+.letter-paper p {
+
+  margin-top:
+    0;
+
+  margin-bottom:
+    18px;
+
+}
+
+
+.signature {
+
+  text-align:
+    right;
+
+  font-family:
+    "Itim",
+    cursive;
+
+  font-size:
+    1.3rem;
+
+  color:
+    var(--pink);
+
+  margin-top:
+    25px;
+
+}
+
+
+/* =========================================================
+   OPEN LETTER
+   ========================================================= */
+
+/*
+   จุดสำคัญของเวอร์ชันนี้
+
+   - ไม่ใช้ position: fixed
+   - ไม่สร้าง backdrop
+   - ไม่เปลี่ยน body
+   - ไม่เปลี่ยน background
+   - กระดาษขยายออกจากซอง
+*/
 
 .envelope.open .letter-paper {
 
-  /*
-    ยังคงอยู่ในหน้าเดิม
-    ไม่ใช้ position: fixed
-  */
+  position:
+    absolute;
 
-  position: absolute;
+  z-index:
+    20;
 
-  z-index: 20;
+  width:
+    100%;
 
-  width: 100%;
+  height:
+    330px;
 
-  height: 320px;
+  left:
+    0;
 
-  left: 0;
+  top:
+    -135px;
 
-  top: -120px;
+  padding:
+    30px 35px;
 
-  padding: 28px 32px;
+  border-radius:
+    18px;
 
-  border-radius: 18px;
-
-  background: #fffdf8;
+  background:
+    #fffdf8;
 
   box-shadow:
     0 20px 50px
-    rgba(0, 0, 0, 0.22);
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
 
   transform:
-    translateY(-20px);
+    translateY(-15px);
 
-  overflow-y: auto;
+  overflow-y:
+    auto;
 
-  font-size: 1rem;
+  font-size:
+    1rem;
 
-  line-height: 1.9;
+  line-height:
+    1.9;
+
 }
 
 
-/* =====================================
-   FRONT OF ENVELOPE
-   ===================================== */
+/* =========================================================
+   ENVELOPE FRONT
+   ========================================================= */
 
 .envelope-front {
 
-  position: absolute;
+  position:
+    absolute;
 
-  inset: 0;
+  inset:
+    0;
 
-  border-radius: 18px;
+  border-radius:
+    18px;
 
   background:
     linear-gradient(
@@ -147,7 +1154,8 @@
       #ff8da9
     );
 
-  box-shadow: var(--shadow);
+  box-shadow:
+    var(--shadow);
 
   clip-path:
     polygon(
@@ -158,27 +1166,35 @@
       0 100%
     );
 
-  z-index: 21;
+  z-index:
+    21;
+
 }
 
 
-/* =====================================
-   FLAP
-   ===================================== */
+/* =========================================================
+   ENVELOPE FLAP
+   ========================================================= */
 
 .flap {
 
-  position: absolute;
+  position:
+    absolute;
 
-  left: 0;
+  left:
+    0;
 
-  right: 0;
+  right:
+    0;
 
-  top: 0;
+  top:
+    0;
 
-  height: 72%;
+  height:
+    72%;
 
-  background: #ff9eb5;
+  background:
+    #ff9eb5;
 
   clip-path:
     polygon(
@@ -187,12 +1203,15 @@
       50% 70%
     );
 
-  transform-origin: top;
+  transform-origin:
+    top;
 
   transition:
     transform 0.8s ease;
 
-  z-index: 22;
+  z-index:
+    22;
+
 }
 
 
@@ -204,50 +1223,45 @@
 }
 
 
-/* =====================================
-   ไม่ทำพื้นหลังใหม่
-   ===================================== */
-
-/*
-  ตรงนี้ตั้งใจไม่มี .envelope.open::after
-
-  เพราะต้องการให้พื้นหลังของหน้า
-  เหมือนเดิม 100%
-*/
-
-
-/* =====================================
-   ปุ่มไปหน้าคำถาม
-   ===================================== */
+/* =========================================================
+   LETTER BUTTON
+   ========================================================= */
 
 #letterNext {
 
-  position: relative;
+  position:
+    relative;
 
-  z-index: 30;
+  z-index:
+    30;
 
 }
 
 
-/* เมื่อเปิดจดหมาย */
+/* ตอนเปิดจดหมาย */
+
 .envelope.open + #letterNext {
 
-  opacity: 1;
+  opacity:
+    1;
 
-  pointer-events: auto;
+  pointer-events:
+    auto;
 
 }
 
 
-/* =====================================
+/* =========================================================
    HIDDEN BUTTON
-   ===================================== */
+   ========================================================= */
 
 .hidden {
 
-  opacity: 0;
+  opacity:
+    0;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
   transition:
     opacity 0.5s ease;
@@ -257,8 +1271,518 @@
 
 .envelope.open + .hidden {
 
-  opacity: 1;
+  opacity:
+    1;
 
-  pointer-events: auto;
+  pointer-events:
+    auto;
+
+}
+
+
+/* =========================================================
+   PROPOSAL
+   ========================================================= */
+
+#proposal {
+
+  grid-template-columns:
+    minmax(280px, 700px);
+
+  align-content:
+    center;
+
+}
+
+
+.proposal-heart {
+
+  font-size:
+    7rem;
+
+  color:
+    #ff9bb1;
+
+  font-family:
+    serif;
+
+  animation:
+    pulse 1.6s infinite;
+
+}
+
+
+@keyframes pulse {
+
+  50% {
+
+    transform:
+      scale(1.1);
+
+  }
+
+}
+
+
+.big-question {
+
+  font-size:
+    clamp(
+      3.5rem,
+      12vw,
+      6rem
+    );
+
+  line-height:
+    1;
+
+  margin:
+    0;
+
+}
+
+
+.small {
+
+  max-width:
+    550px;
+
+  margin:
+    20px auto 28px;
+
+  color:
+    var(--muted);
+
+}
+
+
+.choices {
+
+  display:
+    flex;
+
+  justify-content:
+    center;
+
+  gap:
+    12px;
+
+  flex-wrap:
+    wrap;
+
+}
+
+
+.yes,
+.think {
+
+  padding:
+    14px 30px;
+
+  border-radius:
+    999px;
+
+}
+
+
+.yes {
+
+  background:
+    var(--pink);
+
+  color:
+    #ffffff;
+
+}
+
+
+.yes:hover {
+
+  transform:
+    translateY(-3px);
+
+}
+
+
+.think {
+
+  background:
+    #ffffff;
+
+  color:
+    #8a747a;
+
+  border:
+    1px solid #ecdfe2;
+
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.result {
+
+  grid-template-columns:
+    minmax(280px, 650px);
+
+  align-content:
+    center;
+
+}
+
+
+.firework {
+
+  font-size:
+    4rem;
+
+  animation:
+    bounce 0.8s
+    infinite
+    alternate;
+
+}
+
+
+@keyframes bounce {
+
+  to {
+
+    transform:
+      translateY(-12px);
+
+  }
+
+}
+
+
+.big-heart {
+
+  font-size:
+    8rem;
+
+  color:
+    #ff6f91;
+
+  line-height:
+    0.8;
+
+  animation:
+    pulse 1s infinite;
+
+}
+
+
+.soft-heart {
+
+  font-size:
+    7rem;
+
+  color:
+    #ffb0c0;
+
+}
+
+
+.result h2 {
+
+  font-size:
+    clamp(
+      3.5rem,
+      12vw,
+      5rem
+    );
+
+  margin:
+    15px 0 0;
+
+}
+
+
+.result h3 {
+
+  font-size:
+    2rem;
+
+  margin:
+    5px 0;
+
+}
+
+
+.result p {
+
+  color:
+    var(--muted);
+
+}
+
+
+.forever {
+
+  max-width:
+    500px;
+
+  margin:
+    20px auto 30px;
+
+}
+
+
+.think-message {
+
+  font-family:
+    "Itim",
+    cursive;
+
+  font-size:
+    1.7rem;
+
+  line-height:
+    1.5;
+
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+   ========================================================= */
+
+#hearts {
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  overflow:
+    hidden;
+
+  z-index:
+    50;
+
+}
+
+
+.float-heart {
+
+  position:
+    absolute;
+
+  bottom:
+    -30px;
+
+  animation:
+    floatUp linear forwards;
+
+  opacity:
+    0.65;
+
+}
+
+
+@keyframes floatUp {
+
+  to {
+
+    transform:
+      translateY(-110vh)
+      rotate(30deg);
+
+    opacity:
+      0;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+
+  .page {
+
+    padding:
+      35px 18px 60px;
+
+  }
+
+
+  /* ===============================
+     รูป
+  =============================== */
+
+  .photo-wrap {
+
+    width:
+      min(
+        82vw,
+        340px
+      );
+
+  }
+
+
+  /* ===============================
+     เพลง
+  =============================== */
+
+  .music-card {
+
+    padding:
+      16px;
+
+    gap:
+      12px;
+
+  }
+
+
+  .vinyl {
+
+    width:
+      78px;
+
+    height:
+      78px;
+
+    flex-basis:
+      78px;
+
+  }
+
+
+  .vinyl-hole {
+
+    left:
+      31px;
+
+    top:
+      31px;
+
+  }
+
+
+  /* ===============================
+     ซอง
+  =============================== */
+
+  .envelope {
+
+    width:
+      88vw;
+
+    height:
+      290px;
+
+  }
+
+
+  /*
+     จดหมายเมื่อเปิดบนมือถือ
+  */
+
+  .envelope.open .letter-paper {
+
+    width:
+      94vw;
+
+    height:
+      68vh;
+
+    left:
+      50%;
+
+    top:
+      -30px;
+
+    transform:
+      translateX(-50%);
+
+    padding:
+      25px 22px;
+
+    font-size:
+      0.9rem;
+
+    line-height:
+      1.8;
+
+    border-radius:
+      16px;
+
+    overflow-y:
+      auto;
+
+  }
+
+
+  /* ===============================
+     กระดาษก่อนเปิด
+  =============================== */
+
+  .letter-paper {
+
+    font-size:
+      0.82rem;
+
+    padding:
+      18px;
+
+    line-height:
+      1.7;
+
+  }
+
+
+  /* ===============================
+     ปุ่มจดหมาย
+  =============================== */
+
+  .envelope.open + #letterNext {
+
+    margin-top:
+      10px;
+
+  }
+
+
+  /* ===============================
+     คำถาม
+  =============================== */
+
+  .big-question {
+
+    font-size:
+      clamp(
+        3rem,
+        14vw,
+        5rem
+      );
+
+  }
+
+
+  /* ===============================
+     Result
+  =============================== */
+
+  .result h3 {
+
+    font-size:
+      1.7rem;
+
+  }
+
 
 }
