@@ -413,7 +413,42 @@ document
     }
   );
 
-
+// วาง URL ที่ได้จากการ Deploy Web App ของ Google Apps Script ตรงนี้
+const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwx7rURpMLqJCa5SlvgFm5gGoN7JjDR1qDKwPcET6A3gfM8N-L24LQUJQ567d5uY-fX/exec";
+ 
+function logAcceptTime(){
+  try{
+    const now = new Date();
+    const payload = {
+      isoTime: now.toISOString(),
+      thaiTime: now.toLocaleString("th-TH", {
+        timeZone: "Asia/Bangkok",
+        dateStyle: "long",
+        timeStyle: "medium"
+      })
+    };
+    // ใช้ mode:"no-cors" เพราะ Apps Script Web App ไม่ส่ง CORS header กลับมา
+    // (เรายิงแบบ fire-and-forget ไม่ต้องรออ่านผลลัพธ์)
+    fetch(SHEET_WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(payload)
+    }).catch(()=>{ /* เงียบไว้ ไม่ให้กระทบหน้าเว็บถ้าเน็ตมีปัญหา */ });
+  }catch(err){
+    console.warn("บันทึกเวลาไป Google Sheet ไม่สำเร็จ:", err);
+  }
+}
+ 
+document.getElementById("yesBtn").addEventListener("click",()=>{
+  logAcceptTime();
+  showPage("yes");
+  launchHearts(true);
+});
+document.getElementById("thinkBtn").addEventListener("click",()=>showPage("think"));
+document.getElementById("backProposal").addEventListener("click",()=>showPage("proposal"));
+document.getElementById("replay").addEventListener("click",()=>showPage("welcome"));
+ 
 /* =====================================
    HEART EFFECT
 ===================================== */
