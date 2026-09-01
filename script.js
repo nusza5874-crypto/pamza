@@ -413,7 +413,7 @@ document
   );
 
 // วาง URL ที่ได้จากการ Deploy Web App ของ Google Apps Script ตรงนี้
-const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwDzgn5qdzBMUR9OBcqxkiYfVRJFwFFB3mm76262yyE1bottUstY5CczOmMUxeZG_gZ/exec";
+const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbx2m5O6X8HIcTu2VpqGu0PUg-OPEC54xZ6s2spzZf_lZBuntDfc1pHwWTCFaDQ4yptN/exec";
  
 function logAcceptTime(){
   try{
