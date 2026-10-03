@@ -7,7 +7,32 @@ const pages = [
    เปลี่ยนหน้า
 ===================================== */
 
+const welcomeVideo = document.getElementById("welcomeVideo");
+const soundBtn = document.getElementById("soundBtn");
+
+function updateSoundBtn() {
+  soundBtn.textContent = welcomeVideo.muted
+    ? "🔇 แตะเพื่อเปิดเสียง"
+    : "🔊 เสียงเปิดอยู่";
+}
+
+function toggleVideoSound() {
+  welcomeVideo.muted = !welcomeVideo.muted;
+  if (welcomeVideo.paused) welcomeVideo.play().catch(() => {});
+  updateSoundBtn();
+}
+
+soundBtn.addEventListener("click", toggleVideoSound);
+welcomeVideo.addEventListener("click", toggleVideoSound);
+
 function showPage(id) {
+
+  /* วิดีโอเล่นเฉพาะหน้าแรก กันเสียงซ้อนกับเพลง */
+  if (id === "welcome") {
+    welcomeVideo.play().catch(() => {});
+  } else {
+    welcomeVideo.pause();
+  }
 
   pages.forEach(page => {
 
