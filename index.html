@@ -22,9 +22,10 @@
     <section class="page active" id="welcome">
       <div class="photo-wrap">
         <div class="glow"></div>
-        <video src="papamp.mp4" autoplay loop muted playsinline>
+        <video id="welcomeVideo" src="papamp.mp4" autoplay loop muted playsinline>
           เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
         </video>
+        <button class="sound-btn" id="soundBtn" type="button">🔇 แตะเพื่อเปิดเสียง</button>
       </div>
       <p class="eyebrow">ถึงคนพิเศษของพี่ 💌</p>
       <h1>ป๋อมแป๋ม</h1>
@@ -142,6 +143,8 @@
       <button class="secondary" id="backProposal">กลับไปดูคำถามอีกครั้ง</button>
     </section>
   </main>
+
+  <div id="hearts"></div>
 
   <script src="script.js"></script>
 </body>
